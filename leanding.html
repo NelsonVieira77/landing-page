@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Creating three highlights responsive with navigation only CSS of El Chavo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    
+    <meta name="description" content="See this example of responsive three highlights without using javascript. Using only html and css. by Palloi Hofmann">
+    <meta name="keywords" content="css4html, css+for+html, css 4 html, css4, css4 html, css, css3, html, html5" />
+
+    <meta property="og:image" content="http://palloi.github.io/responsive-header-only-css/assets/images/image-shared-2.png" />
+    <meta property="og:keywords" content="css4html, css+for+html, css 4 html, css4, css4 html, css, css3, html, html5" />
+    <meta name="description" content="See this example of responsive three highlights without using javascript. Using only html and css. by Palloi Hofmann">
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="owlCarusel/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="owlCarusel/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" />
+  </head>
+  <body>
+    <header>
+      <div class="float">
+      <img src="true.png">
+      </div>
+       
+      
+      <input type="checkbox" id="control-nav" />
+      <label for="control-nav" class="control-nav"></label>
+      <label for="control-nav" class="control-nav-close"></label>
+
+      <nav class="float-r">
+        <ul class="list-auto">
+          <li>
+            <a href="#Home" title="Home">Home</a>
+          </li>
+          <li>
+            <a href="#Blog" title="Blog">Blog</a>
+          </li>
+          <li>
+            <a href="#Career" title="Career">Career</a>
+          </li>
+          <li>
+            <a href="#Contact" title="Contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+     
+      
+    <section id="Home">
+      <img src="conceitos.jpg" class="float-r" />
+      <p>
+        <strong>Want anything to be easy with <b>TrueChange</b></strong> 
+      </p>  
+      <p>
+        Provide a network for all your needs with ease and fun using <b>TrueChange</b> 
+        discover intersting features from us.
+      </p>     
+
+      <button class="botao">Get Started</button>
+
+    </section>
+
+    <section id=Blog>
+
+    <div style="text-align:center">
+      <h2  href="#Home">Blog</h2></div>
+
+
+    <div class="owl-carousel owl-theme">
+
+          
+      <div class="item"><img src="conceitos.jpg" alt="Owl Image"></div>
+      <div class="item"><img  src="conceitos.jpg"></div>
+      <div class="item"><img src="conceitos.jpg" alt="Owl Image"></div>
+      <div class="item"><img src="conceitos.jpg" alt="Owl Image"></div>
+      <div class="item"><img src="conceitos.jpg" alt="Owl Image"></div>
+      <div class="item"><img src="conceitos.jpg" alt="Owl Image"></div>
+      <div class="item"><img src="conceitos.jpg" alt="Owl Image"></div>
+    
+    </div>
+
+  </section>
+
+  <section id="Career">
+    <form method="post" action="" onSubmit="return ( verifica() )" name="frmEnvia">
+   <label for="email" class ="label-sub"><strong>Subscribe now for <br />
+    Get Special Features!</strong></label>
+   <input name="email" type="text" class="input" id="email" onblur="checarEmail();" />
+   <button class="botao-sub">Subscribe now!</button>
+  </form>
+    
+  </section>
+
+  
+    
+
+  <section id=Contact>
+    <div class="footer">
+      <p class="footer-text">©truechange</p>                 
+  </div>
+
+</section>
+
+  </body>
+
+  <script>
+    function checarEmail(){
+    if( document.forms[0].email.value=="" 
+       || document.forms[0].email.value.indexOf('@')==-1 
+         || document.forms[0].email.value.indexOf('.')==-1 )
+      {
+        alert( "Por favor, informe um E-MAIL válido!" );
+        return false;
+      }
+    }
+    </script>
+
+  <script language="Javascript">
+    function validacaoEmail(field) {
+    usuario = field.value.substring(0, field.value.indexOf("@"));
+    dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
+    
+    if ((usuario.length >=1) &&
+        (dominio.length >=3) &&
+        (usuario.search("@")==-1) &&
+        (dominio.search("@")==-1) &&
+        (usuario.search(" ")==-1) &&
+        (dominio.search(" ")==-1) &&
+        (dominio.search(".")!=-1) &&
+        (dominio.indexOf(".") >=1)&&
+        (dominio.lastIndexOf(".") < dominio.length - 1)) {
+    document.getElementById("msgemail").innerHTML="E-mail válido";
+    alert("E-mail valido");
+    }
+    else{
+    document.getElementById("msgemail").innerHTML="<font color='red'>E-mail inválido </font>";
+    alert("E-mail invalido");
+    }
+    }
+    </script>
+
+  <script src="jquery/jquery.js"></script>
+  <script src="owlCarusel/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+  
+      $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:3,
+            nav:false
+        },
+        1000:{
+            items:5,
+            nav:true,
+            navigator: onanimationend,
+            loop:true
+        }
+    }
+})
+})
+  </script>
+  
+</html>
+
